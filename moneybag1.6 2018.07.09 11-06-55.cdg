@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="moneybag1.6">
+  <ClassDiagramComponents>
+    <Class name="MainJFrameControl" package="controller" visibility="public" xPosition="1200.0" yPosition="58.0">
+      <Fields>
+        <Field name="res" type="boolean" visibility="private"/>
+        <Field name="bal" type="Balance" visibility="private"/>
+        <Field name="inc" type="Income" visibility="private"/>
+        <Field name="acc" type="UserAccount" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="updateuser" returnType="void" visibility="public">
+          <Argument type="Edituser" name="jf"/>
+          <Argument type="String" name="fname"/>
+          <Argument type="String" name="lname"/>
+          <Argument type="String" name="gender"/>
+          <Argument type="int" name="age"/>
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+          <Argument type="int" name="mainframeid"/>
+        </Method>
+        <Method name="startingSignup" returnType="void" visibility="public">
+          <Argument type="NewJFrame" name="jf"/>
+          <Argument type="double" name="currentMoney"/>
+          <Argument type="String" name="frequency"/>
+          <Argument type="double" name="increase"/>
+          <Argument type="String" name="fname"/>
+          <Argument type="String" name="lname"/>
+          <Argument type="String" name="gender"/>
+          <Argument type="int" name="age"/>
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="signingIn" returnType="void" visibility="public">
+          <Argument type="NewJFrame3" name="jf"/>
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="convertFrequency" returnType="String" visibility="public"/>
+        <Method name="addingExpense" returnType="void" visibility="public">
+          <Argument type="Addexpense" name="ae"/>
+          <Argument type="String" name="expenseType"/>
+          <Argument type="double" name="moneySpent"/>
+        </Method>
+        <Method name="isRes" returnType="boolean" visibility="public"/>
+        <Method name="setRes" returnType="void" visibility="public">
+          <Argument type="boolean" name="res"/>
+        </Method>
+        <Method name="getBal" returnType="Balance" visibility="public"/>
+        <Method name="setBal" returnType="void" visibility="public">
+          <Argument type="Balance" name="bal"/>
+        </Method>
+        <Method name="getInc" returnType="Income" visibility="public"/>
+        <Method name="setInc" returnType="void" visibility="public">
+          <Argument type="Income" name="inc"/>
+        </Method>
+        <Method name="getAcc" returnType="UserAccount" visibility="public"/>
+        <Method name="setAcc" returnType="void" visibility="public">
+          <Argument type="UserAccount" name="acc"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="NoMoneyException" package="controller" visibility="public" xPosition="379.0" yPosition="1117.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="msg"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Balance" package="model" visibility="public" xPosition="454.0" yPosition="106.0">
+      <Fields>
+        <Field name="currentMoney" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="currentMoney"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="insertdbBalance" returnType="boolean" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getInfoWithID" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="updateBalanceExpense" returnType="boolean" visibility="public">
+          <Argument type="double" name="moneySpent"/>
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getCurrentMoney" returnType="double" visibility="public"/>
+        <Method name="setCurrentMoney" returnType="void" visibility="public">
+          <Argument type="double" name="currentMoney"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="connector" package="model" visibility="public" xPosition="797.0" yPosition="1477.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getConnection" returnType="Connection" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Income" package="model" visibility="public" xPosition="1033.0" yPosition="596.0">
+      <Fields>
+        <Field name="incomeMoney" type="double" visibility="private"/>
+        <Field name="increase" type="double" visibility="private"/>
+        <Field name="frequency" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="increase"/>
+          <Argument type="String" name="frequency"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="insertdbIncome" returnType="boolean" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getInfoWithID" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getIncomeMoney" returnType="double" visibility="public"/>
+        <Method name="setIncomeMoney" returnType="void" visibility="public">
+          <Argument type="double" name="incomeMoney"/>
+        </Method>
+        <Method name="getIncrease" returnType="double" visibility="public"/>
+        <Method name="setIncrease" returnType="void" visibility="public">
+          <Argument type="double" name="increase"/>
+        </Method>
+        <Method name="getFrequency" returnType="String" visibility="public"/>
+        <Method name="setFrequency" returnType="void" visibility="public">
+          <Argument type="String" name="frequency"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SingleCosting" package="model" visibility="public" xPosition="310.0" yPosition="1327.0">
+      <Fields>
+        <Field name="moneySpent" type="double" visibility="private"/>
+        <Field name="expenseType" type="String" visibility="private"/>
+        <Field name="timeHistory" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="double" name="moneySpent"/>
+          <Argument type="String" name="expenseType"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="insertdbSingleCost" returnType="boolean" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getMoneySpent" returnType="double" visibility="public"/>
+        <Method name="getExpenseType" returnType="String" visibility="public"/>
+        <Method name="getTimeHistory" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UserAccount" package="model" visibility="public" xPosition="3041.0" yPosition="58.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="fname" type="String" visibility="private"/>
+        <Field name="lname" type="String" visibility="private"/>
+        <Field name="gender" type="String" visibility="private"/>
+        <Field name="age" type="int" visibility="private"/>
+        <Field name="username" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="fname"/>
+          <Argument type="String" name="lname"/>
+          <Argument type="String" name="gender"/>
+          <Argument type="int" name="age"/>
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="insertdbAccount" returnType="boolean" visibility="public"/>
+        <Method name="updatedbAccount" returnType="boolean" visibility="public">
+          <Argument type="int" name="useraccountid"/>
+        </Method>
+        <Method name="getdbID" returnType="void" visibility="public"/>
+        <Method name="getUserAuthenticity" returnType="void" visibility="public">
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="getUserInfoWithID" returnType="void" visibility="public"/>
+        <Method name="getUsernameValidity" returnType="boolean" visibility="public"/>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getFname" returnType="String" visibility="public"/>
+        <Method name="setFname" returnType="void" visibility="public">
+          <Argument type="String" name="fname"/>
+        </Method>
+        <Method name="getLname" returnType="String" visibility="public"/>
+        <Method name="setLname" returnType="void" visibility="public">
+          <Argument type="String" name="lname"/>
+        </Method>
+        <Method name="getGender" returnType="String" visibility="public"/>
+        <Method name="setGender" returnType="void" visibility="public">
+          <Argument type="String" name="gender"/>
+        </Method>
+        <Method name="getAge" returnType="int" visibility="public"/>
+        <Method name="setAge" returnType="void" visibility="public">
+          <Argument type="int" name="age"/>
+        </Method>
+        <Method name="getUsername" returnType="String" visibility="public"/>
+        <Method name="setUsername" returnType="void" visibility="public">
+          <Argument type="String" name="username"/>
+        </Method>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="setPassword" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Addexpense" package="view" visibility="public" xPosition="1131.0" yPosition="571.0">
+      <Fields>
+        <Field name="jc" type="MainJFrameControl" visibility="private"/>
+        <Field name="etypecombobox" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jTextField1" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="jToggleButton1" type="javax.swing.JToggleButton" visibility="private"/>
+        <Field name="jToggleButton2" type="javax.swing.JToggleButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="MainJFrameControl" name="jc"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jToggleButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jToggleButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Edituser" package="view" visibility="public" xPosition="96.0" yPosition="470.0">
+      <Fields>
+        <Field name="conn" type="Connection" visibility="package"/>
+        <Field name="jc" type="MainJFrameControl" visibility="private"/>
+        <Field name="comboboxgender" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jSeparator1" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="jToggleButton1" type="javax.swing.JToggleButton" visibility="private"/>
+        <Field name="jToggleButton2" type="javax.swing.JToggleButton" visibility="private"/>
+        <Field name="textfieldage" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="textfieldfname" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="textfieldlname" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="textfieldpassword" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="textfieldusername" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="MainJFrameControl" name="jc"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jToggleButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jToggleButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="NewJFrame" package="view" visibility="public" xPosition="2201.0" yPosition="1207.0">
+      <Fields>
+        <Field name="conn" type="java.sql.Connection" visibility="package"/>
+        <Field name="rs" type="ResultSet" visibility="package"/>
+        <Field name="st" type="Statement" visibility="package"/>
+        <Field name="frame" type="JFrame" visibility="private"/>
+        <Field name="TextFieldIncrease" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="comboboxgender" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jSeparator1" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="jToggleButton1" type="javax.swing.JToggleButton" visibility="private"/>
+        <Field name="jselectormm" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jtextfieldammount" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="textfieldage" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="textfieldfname" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="textfieldlname" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="textfieldpassword" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="textfieldusername" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jselectormmActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="TextFieldIncreaseActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jToggleButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="NewJFrame1" package="view" visibility="public" xPosition="1485.0" yPosition="985.0">
+      <Fields>
+        <Field name="conn" type="Connection" visibility="package"/>
+        <Field name="jc" type="MainJFrameControl" visibility="private"/>
+        <Field name="entityManager" type="javax.persistence.EntityManager" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane2" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jSeparator1" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="jTable2" type="javax.swing.JTable" visibility="private"/>
+        <Field name="jToggleButton1" type="javax.swing.JToggleButton" visibility="private"/>
+        <Field name="jToggleButton5" type="javax.swing.JToggleButton" visibility="private"/>
+        <Field name="singleCostingList" type="java.util.List&lt;view.SingleCosting&gt;" visibility="private"/>
+        <Field name="singleCostingQuery" type="javax.persistence.Query" visibility="private"/>
+        <Field name="bindingGroup" type="org.jdesktop.beansbinding.BindingGroup" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="MainJFrameControl" name="jc"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jToggleButton5ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jLabel6MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jLabel5MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jLabel7MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jToggleButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="NewJFrame2" package="view" visibility="public" xPosition="786.0" yPosition="1068.0">
+      <Fields>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jToggleButton1" type="javax.swing.JToggleButton" visibility="private"/>
+        <Field name="jToggleButton2" type="javax.swing.JToggleButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jToggleButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jToggleButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="NewJFrame3" package="view" visibility="public" xPosition="2270.0" yPosition="526.0">
+      <Fields>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jSeparator1" type="javax.swing.JSeparator" visibility="private"/>
+        <Field name="jToggleButton1" type="javax.swing.JToggleButton" visibility="private"/>
+        <Field name="jToggleButton2" type="javax.swing.JToggleButton" visibility="private"/>
+        <Field name="textfieldpassword" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="textfieldusername" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jToggleButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jToggleButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SingleCosting" package="view" visibility="public" xPosition="2942.0" yPosition="954.0">
+      <Fields>
+        <Field name="changeSupport" type="PropertyChangeSupport" visibility="private"/>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="scid" type="Integer" visibility="private"/>
+        <Field name="moneySpent" type="double" visibility="private"/>
+        <Field name="expenseType" type="String" visibility="private"/>
+        <Field name="timeHistory" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="scid"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="scid"/>
+          <Argument type="double" name="moneySpent"/>
+          <Argument type="String" name="expenseType"/>
+          <Argument type="Date" name="timeHistory"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getScid" returnType="Integer" visibility="public"/>
+        <Method name="setScid" returnType="void" visibility="public">
+          <Argument type="Integer" name="scid"/>
+        </Method>
+        <Method name="getMoneySpent" returnType="double" visibility="public"/>
+        <Method name="setMoneySpent" returnType="void" visibility="public">
+          <Argument type="double" name="moneySpent"/>
+        </Method>
+        <Method name="getExpenseType" returnType="String" visibility="public"/>
+        <Method name="setExpenseType" returnType="void" visibility="public">
+          <Argument type="String" name="expenseType"/>
+        </Method>
+        <Method name="getTimeHistory" returnType="Date" visibility="public"/>
+        <Method name="setTimeHistory" returnType="void" visibility="public">
+          <Argument type="Date" name="timeHistory"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="addPropertyChangeListener" returnType="void" visibility="public">
+          <Argument type="PropertyChangeListener" name="listener"/>
+        </Method>
+        <Method name="removePropertyChangeListener" returnType="void" visibility="public">
+          <Argument type="PropertyChangeListener" name="listener"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="controller.MainJFrameControl" target="view.NewJFrame" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="controller.MainJFrameControl" target="view.Addexpense" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="controller.MainJFrameControl" target="model.UserAccount" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="controller.MainJFrameControl" target="view.Edituser" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="jc" source="view.Addexpense" target="controller.MainJFrameControl" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="controller.MainJFrameControl" target="model.Balance" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="controller.MainJFrameControl" target="view.NewJFrame3" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="inc" source="controller.MainJFrameControl" target="model.Income" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bal" source="controller.MainJFrameControl" target="model.Balance" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="controller.MainJFrameControl" target="model.Income" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="jc" source="view.NewJFrame1" target="controller.MainJFrameControl" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="jc" source="view.Edituser" target="controller.MainJFrameControl" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="acc" source="controller.MainJFrameControl" target="model.UserAccount" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
